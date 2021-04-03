@@ -2,7 +2,7 @@
 
 namespace Blogger.Migrations
 {
-    public partial class ColorModel : Migration
+    public partial class dbtest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,9 +10,9 @@ namespace Blogger.Migrations
                 name: "ColorItems",
                 columns: table => new
                 {
-                    ColorID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ColorName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ColorID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ColorName = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

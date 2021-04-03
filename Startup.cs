@@ -15,12 +15,14 @@ namespace Blogger
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            Environment = env;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,8 +33,27 @@ namespace Blogger
             var password = Configuration["DBPassword"] ?? "Pa55w0rd";
             var database = Configuration["Database"] ?? "Colors";
 
-            services.AddDbContext<ColorContext>(options => 
-                options.UseSqlServer($"Server={server},{port}; Initial Catalog={database}; User ID={user}; Password={password}"));
+            // services.AddDbContext<ColorContext>(options => 
+            //     options.UseSqlServer($"Server={server},{port}; Initial Catalog={database}; User ID={user}; Password={password}"));
+
+            //for development
+            // services.AddDbContext<ColorContext>(options =>
+            //     options.UseSqlite(Configuration.GetConnectionString("ColorConstr")));
+
+            services.AddDbContext<ColorContext>(options =>
+            {
+                var sqlitedb = Configuration.GetConnectionString("ColorSqliteDB");
+                var sqldb = Configuration.GetConnectionString("ColorSqlDB");
+
+                if (Environment.IsDevelopment())
+                {
+                    options.UseSqlite(sqlitedb);
+                }
+                else
+                {
+                    options.UseSqlServer(sqldb);
+                }
+            });
             services.AddControllersWithViews();
         }
 

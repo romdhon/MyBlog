@@ -25,11 +25,11 @@ namespace Blogger.Models
             {
                 System.Console.WriteLine("Adding data - Seeding!");
                 context.AddRange(
-                    new Color { ColorName = "red" },
-                    new Color { ColorName = "blue" },
-                    new Color { ColorName = "yellow" },
-                    new Color { ColorName = "green" },
-                    new Color { ColorName = "orange" }
+                    new Color { ColorID = 1, ColorName = "red" },
+                    new Color { ColorID = 2, ColorName = "blue" },
+                    new Color { ColorID = 3, ColorName = "yellow" },
+                    new Color { ColorID = 4, ColorName = "green" },
+                    new Color { ColorID = 5, ColorName = "orange" }
                 );
                 context.SaveChanges();
             }else
