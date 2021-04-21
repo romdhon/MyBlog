@@ -7,5 +7,6 @@ namespace Blogger.Models
         {
         }
         public DbSet<Color> ColorItems {get; set;}
+        public DbSet<User> Users { get; set;}
     }
 }

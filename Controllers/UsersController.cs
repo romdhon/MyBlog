@@ -11,12 +11,22 @@ namespace Blogger.Controllers
 {
     public class UsersController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string name, int id)
+        {
+            ViewData["name"] = name;
+            ViewData["id"] = id;
+            return View();
+        }
+
+        public IActionResult LoginPage()
         {
             return View();
         }
-        public IActionResult LoginPage(){
-            return View();
+
+        [HttpPost]
+        public IActionResult LoginPage(string iname, int iid){
+            return RedirectToAction("index", new {name=iname, id=iid});
         }
     }
 }

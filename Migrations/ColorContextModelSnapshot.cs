@@ -28,6 +28,32 @@ namespace Blogger.Migrations
 
                     b.ToTable("ColorItems");
                 });
+
+            modelBuilder.Entity("Blogger.Models.User", b =>
+                {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserPosition")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserStat")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("Users");
+                });
 #pragma warning restore 612, 618
         }
     }
