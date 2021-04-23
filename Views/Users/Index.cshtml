@@ -2,6 +2,23 @@
     Layout = "~/Views/Shared/_Accounts.cshtml";
 }
 
-<h1>This is Index Page!</h1>
-<h3>@ViewData["name"]</h3>
-<h3>@ViewData["id"]</h3>
+@model IEnumerable<Blogger.Models.User>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Username</td>
+            </tr>
+        }
+    </tbody>
+        
+</table>

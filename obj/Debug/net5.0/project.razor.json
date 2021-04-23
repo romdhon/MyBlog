@@ -15619,6 +15619,11 @@
   "RootNamespace": "Blogger",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Test\\update.cshtml",
+      "TargetPath": "Views\\Test\\update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -15651,6 +15656,11 @@
     {
       "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Users\\LoginPage.cshtml",
       "TargetPath": "Views\\Users\\LoginPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Users\\Details.cshtml",
+      "TargetPath": "Views\\Users\\Details.cshtml",
       "FileKind": "mvc"
     },
     {

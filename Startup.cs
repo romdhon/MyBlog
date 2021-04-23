@@ -39,7 +39,8 @@ namespace Blogger
             //for development
             // services.AddDbContext<ColorContext>(options =>
             //     options.UseSqlite(Configuration.GetConnectionString("ColorConstr")));
-
+            services.AddMvc().AddXmlSerializerFormatters();
+            services.AddSingleton<IUserRepository, MockUserRepository>();
             services.AddDbContext<ColorContext>(options =>
             {
                 var sqlitedb = Configuration.GetConnectionString("ColorSqliteDB");
@@ -55,6 +56,7 @@ namespace Blogger
                 }
             });
             services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,12 +79,19 @@ namespace Blogger
 
             app.UseAuthorization();
 
+            //set a default page by providing a controller or an action 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Users}/{action=LoginPage}/{id?}");
             });
+
+            //manual route
+            // app.UseMvc(route =>
+            // {
+            //     route.MapRoute("Default", "{controller}/{action}/{id}");
+            // });
 
             PrepDB.PrepPopulation(app);
         }
