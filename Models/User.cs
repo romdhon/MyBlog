@@ -7,6 +7,6 @@ namespace Blogger.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public int UserStat { get; set; }
-        public int UserPosition { get; set; }
+        public Position UserPosition { get; set; }
     }
 }

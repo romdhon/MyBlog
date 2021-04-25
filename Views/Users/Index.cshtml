@@ -1,24 +1,18 @@
 @{
-    Layout = "~/Views/Shared/_Accounts.cshtml";
+    Layout = "~/Views/Shared/_allStatic.cshtml";
 }
 
 @model IEnumerable<Blogger.Models.User>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Username</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var user in Model)
-        {
-            <tr>
-                <td>@user.Name</td>
-                <td>@user.Username</td>
-            </tr>
-        }
-    </tbody>
-        
-</table>
+
+@foreach(var user in Model)
+{
+    <div class="card m-2" style="width: 18rem;">
+        <img src="~/images/user.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@user.Name</h5>
+            <p class="card-text">My name is @user.Name and my Email is @user.Username</p>
+            <a asp-controller="users" asp-action="details" asp-route-id="@user.UserID" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+}

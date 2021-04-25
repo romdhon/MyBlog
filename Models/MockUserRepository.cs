@@ -10,8 +10,8 @@ namespace Blogger.Models
         {
             _UserList = new List<User>()
             {
-                new User{UserID=1, Name="Romdon",Username="romdon@gmail.com",Password="12345",UserPosition=1,UserStat=1},
-                new User{UserID=2, Name="Hasnan",Username="hasnan@gmail.com",Password="12345",UserPosition=2,UserStat=0}
+                new User{UserID=1, Name="Romdon",Username="romdon@gmail.com",Password="12345",UserPosition=Position.Admin,UserStat=1},
+                new User{UserID=2, Name="Hasnan",Username="hasnan@gmail.com",Password="12345",UserPosition=Position.NormalUser,UserStat=0}
             };
         }
         public User GetUser(int id)
@@ -22,6 +22,15 @@ namespace Blogger.Models
         public IEnumerable<User> GetAllUser()
         {
             return _UserList;
+        }
+
+        public User AddUser(User user)
+        {
+            user.UserID = _UserList.Max(e => e.UserID) + 1;
+            user.Password = "12345";
+            user.UserStat = 1;
+            _UserList.Add(user);
+            return user;
         }
     }
 }

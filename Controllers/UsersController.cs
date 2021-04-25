@@ -10,6 +10,7 @@ using Blogger.ViewModels;
 
 namespace Blogger.Controllers
 {
+    [Route("[controller]")]
     public class UsersController : Controller
     {
         private IUserRepository _userRepository;
@@ -19,6 +20,8 @@ namespace Blogger.Controllers
             _userRepository = userRepository;
         }
         // [HttpGet]
+        [Route("[action]")]
+        [Route("")]
         public ViewResult Index()
         {
             // ViewData["name"] = name;
@@ -31,9 +34,11 @@ namespace Blogger.Controllers
         //if want to return in xml use ObjectResult method and return new ObjectResult(model) then change the service to services.AddMvc().AddXmlSerializerFormatters();
         //if want to return a view use ViewResult and return View(model) model can be the name of the view or use the absolute path(have to specify the cshtml) or relative path(../folder/view_name);
         //ViewBag and ViewData
-        public ViewResult Details(int id)
+        [Route("[action]")]
+        [Route("[action]/{id?}")]
+        public ViewResult Details(int? id)
         {
-            User model = _userRepository.GetUser(id);
+            User model = _userRepository.GetUser(id??1);
             // ViewData["user"] = model;
             UserDetailViewModel userDetailViewModel = new UserDetailViewModel()
             {
@@ -42,6 +47,22 @@ namespace Blogger.Controllers
             };
             return View(userDetailViewModel);
         }
+        [HttpGet]
+        [Route("[action]")]
+        public ViewResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public RedirectToActionResult Create(User user)
+        {
+            User newUser = _userRepository.AddUser(user);
+            return RedirectToAction("Details", new {id=newUser.UserID});
+        }
+
+        [Route("~/")]
 
         public IActionResult LoginPage()
         {

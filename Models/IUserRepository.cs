@@ -6,5 +6,6 @@ namespace Blogger.Models
     {
         User GetUser(int id);
         IEnumerable<User> GetAllUser();
+        User AddUser(User user);
     }
 }

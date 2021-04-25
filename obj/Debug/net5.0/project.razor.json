@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Shared\\_allStatic.cshtml",
+      "TargetPath": "Views\\Shared\\_allStatic.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -15671,6 +15676,11 @@
     {
       "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\romdh\\DockerProject\\Blogger\\Views\\Users\\Create.cshtml",
+      "TargetPath": "Views\\Users\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

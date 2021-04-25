@@ -97,3 +97,5 @@ C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Users\Index.cs
 C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Shared\_Accounts.cshtml.g.cs
 C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Users\Details.cshtml.g.cs
 C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Test\update.cshtml.g.cs
+C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Shared\_allStatic.cshtml.g.cs
+C:\Users\romdh\DockerProject\Blogger\obj\Debug\net5.0\Razor\Views\Users\Create.cshtml.g.cs
